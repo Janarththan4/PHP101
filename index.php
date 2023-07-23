@@ -7,6 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Demo</title>
     <style>
+        html {
+            color-scheme: dark;
+        }
+
         body {
             font-family: system-ui;
         }
@@ -75,8 +79,7 @@
         ],
     ];
 
-    function filterByAuthor($books, $author)
-    {
+    $filterByAuthor = function ($books, $author) {
         $filteredBooks = [];
 
         foreach ($books as $book) {
@@ -85,11 +88,14 @@
             }
         }
         return $filteredBooks;
-    }
+    };
+
+    $filteredBooks = $filterByAuthor($books, 'Andy Weir');
+
     ?>
 
     <ul>
-        <?php foreach (filterByAuthor($books, 'Andy Weir') as $book) : ?>
+        <?php foreach ($filteredBooks as $book) : ?>
             <?php // if ($book['author'] === 'Andy Weir') : 
             ?>
             <li>
